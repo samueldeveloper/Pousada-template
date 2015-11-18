@@ -1,4 +1,4 @@
-<!-- ------------------- SCROLL TO START ------------------- -->
+
             $(function() {
                 $('nav ul li a').bind('click',function(event){
                     var $anchor = $(this);
@@ -9,9 +9,9 @@
                     event.preventDefault();
                 });
             });
-<!-- ------------------- SCROLL TO END ------------------- -->
+
 	   
-<!-- ------------------- FORM TEXT STYLE START ------------------- -->
+
 
    $(document).ready(function() {
  $('input[title]').each(function() {
@@ -49,9 +49,9 @@
   });
  });
 });
-<!-- ------------------- FORM TEXT STYLE END ------------------- -->
 
-<!-- ------------------- FORM SUBMIT START ------------------- -->
+
+
 	$(document).ready(function() {
 		$('#submitform').ajaxForm({
 			target: '#error',
@@ -60,5 +60,5 @@
 			}
 		});
 	});
-<!-- ------------------- FORM SUBMIT END ------------------- -->
+
 
