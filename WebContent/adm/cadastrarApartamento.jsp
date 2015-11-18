@@ -23,43 +23,43 @@
 		                       
 		            <ul class="nav">
 		                <li class="active">
-		                    <a href="dashboard.html">
+		                    <a href="cadastrarApartamento.jsp">
 		                        <i class="pe-7s-graph"></i> 
 		                        <p>Cadastrar Apartamentos</p>
 		                    </a>            
 		                </li>
 		                <li>
-		                    <a href="user.html">
+		                    <a href="ocuparApartamento.jsp">
 		                        <i class="pe-7s-user"></i> 
 		                        <p>Ocupar Apartamentos</p>
 		                    </a>
 		                </li> 
 		                <li>
-		                    <a href="table.html">
+		                    <a href="desocuparApartamento.jsp">
 		                        <i class="pe-7s-note2"></i> 
 		                        <p>Desocupar Apartamento</p>
 		                    </a>        
 		                </li>
 		                <li>
-		                    <a href="typography.html">
+		                    <a href="cadastrarProdutos.jsp">
 		                        <i class="pe-7s-news-paper"></i> 
 		                        <p>Cadastrar Produtos</p>
 		                    </a>        
 		                </li>
 		                <li>
-		                    <a href="icons.html">
+		                    <a href="listarReservas.jsp">
 		                        <i class="pe-7s-science"></i> 
 		                        <p>Listar Reservas</p>
 		                    </a>        
 		                </li>
 		                <li>
-		                    <a href="maps.html">
+		                    <a href="listarApartamentos.jsp">
 		                        <i class="pe-7s-map-marker"></i> 
 		                        <p>Listar Apartamentos</p>
 		                    </a>        
 		                </li>
 		                <li>
-		                    <a href="notifications.html">
+		                    <a href="">
 		                        <i class="pe-7s-bell"></i> 
 		                        <p>Sair</p>
 		                    </a>        
