@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="../images/logo3.png" />
 	<title>Home</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link href="../css/light-bootstrap-dashboard.css" rel="stylesheet"/>
@@ -22,45 +23,45 @@
 		            </div>
 		                       
 		            <ul class="nav">
-		                <li class="active">
-		                    <a href="dashboard.html">
-		                        <i class="pe-7s-graph"></i> 
-		                        <p>Cadastrar Apartamentos</p>
+		                <li>
+		                    <a href="cadastrarApartamento.jsp">
+		                        <i class="pe-7s-add-user"></i> 
+		                        <p>Novo Apartamento</p>
 		                    </a>            
 		                </li>
 		                <li>
-		                    <a href="user.html">
+		                    <a href="ocuparApartamento.jsp">
 		                        <i class="pe-7s-user"></i> 
-		                        <p>Ocupar Apartamentos</p>
+		                        <p>Ocupar Apartamento</p>
 		                    </a>
 		                </li> 
 		                <li>
-		                    <a href="table.html">
-		                        <i class="pe-7s-note2"></i> 
-		                        <p>Desocupar Apartamento</p>
+		                    <a href="desocuparApartamento.jsp">
+		                        <i class="pe-7s-cash"></i> 
+		                        <p>sair Apartamento</p>
 		                    </a>        
 		                </li>
 		                <li>
-		                    <a href="typography.html">
-		                        <i class="pe-7s-news-paper"></i> 
+		                    <a href="cadastrarProdutos.jsp">
+		                        <i class="pe-7s-wine"></i> 
 		                        <p>Cadastrar Produtos</p>
 		                    </a>        
 		                </li>
 		                <li>
-		                    <a href="icons.html">
-		                        <i class="pe-7s-science"></i> 
+		                    <a href="listarReservas.jsp">
+		                        <i class="pe-7s-news-paper"></i> 
 		                        <p>Listar Reservas</p>
 		                    </a>        
 		                </li>
 		                <li>
-		                    <a href="maps.html">
-		                        <i class="pe-7s-map-marker"></i> 
+		                    <a href="listarApartamentos.jsp">
+		                        <i class="pe-7s-note2"></i> 
 		                        <p>Listar Apartamentos</p>
 		                    </a>        
 		                </li>
 		                <li>
-		                    <a href="notifications.html">
-		                        <i class="pe-7s-bell"></i> 
+		                    <a href="">
+		                        <i class="pe-7s-close"></i> 
 		                        <p>Sair</p>
 		                    </a>        
 		                </li>

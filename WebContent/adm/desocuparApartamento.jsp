@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="../images/logo3.png" />
 	<title>Desocupar Apartamento</title>
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link href="../css/light-bootstrap-dashboard.css" rel="stylesheet"/>
@@ -13,31 +14,29 @@
 <body>
 	<div class="wrapper">
     	<div class="sidebar" data-color="blue" data-image="assets/img/sidebar-5.jpg">    
-    
-			<div class="sidebar-wrapper">
+    		<div class="sidebar-wrapper">
 		         <div class="logo">
 		                <a href="" class="simple-text">
 		                    Painel Pousada
 		                </a>
 		            </div>
-		                       
 		            <ul class="nav">
 		                <li>
 		                    <a href="cadastrarApartamento.jsp">
 		                        <i class="pe-7s-graph"></i> 
-		                        <p>Cadastrar Apartamentos</p>
+		                        <p>Novo Apartamento</p>
 		                    </a>            
 		                </li>
 		                <li>
 		                    <a href="ocuparApartamento.jsp">
 		                        <i class="pe-7s-user"></i> 
-		                        <p>Ocupar Apartamentos</p>
+		                        <p>Ocupar Apartamento</p>
 		                    </a>
 		                </li> 
 		                <li class="active">
 		                    <a href="desocuparApartamento.jsp">
 		                        <i class="pe-7s-note2"></i> 
-		                        <p>Desocupar Apartamento</p>
+		                        <p>sair Apartamento</p>
 		                    </a>        
 		                </li>
 		                <li>
@@ -67,67 +66,93 @@
 		            </ul> 
 		    	</div>
 		  </div>
-		    <div class="main-panel">
-       
-                     
-                     
-        <div class="content">
-            <div class="container-fluid">    
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">..: Desocupar Apartamentos</h4>
-                                <p class="category"></p>
-                            </div>
-                            <div class="content">
-                            <form action="">
-                            	<div class="col-md-5">
-                                     <div class="form-group">
-                                          <label>Número Apartamento</label>
-                                          <input name="numApt" type="text" class="form-control" required="required" placeholder="Número Apartamento">
-                                      </div>        
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Tipo Apartamento</label>
-                                        <select name="tipoApt" required="required" class="form-control">
-                                        	<option>Luxo</option>
-                                        </select>
-                                    </div>        
-                                </div>
-                                <div class="col-md-4">
-	                                  <div class="form-group">
-	                                      <label>Status</label>
-	                                      <select required="required" name="statusApt" class="form-control">
-	                                      	<option value="ocupado">Ocupado</option>
-	                                      	<option value="desocupado">Desocupado</option>
-	                                      </select>
-	                                  </div>        
-	                           </div>    
-	                            <div class="col-md-4">
-	                                  <div class="form-group">
-	                                     <button class="btn" type="submit">Cadastrar</button>
-	                                  </div>        
-	                           </div>                                
-	                      </form>
-                                <div class="footer">
-                                    <div class="legend">
-                                        <i class="fa fa-circle text-info"></i> Aberto
-                                        <i class="fa fa-circle text-danger"></i> Fechado
-                                        <i class="fa fa-circle text-warning"></i> Atenção
-                                    </div>
-                                    <hr>
-                                    <div class="stats">
-                                        <i class="fa fa-clock-o"></i> Avisos
-                                    </div>                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>                     
-            </div>    
-        </div>
+		  <div class="main-panel">
+		       <div class="content">
+		            <div class="container-fluid">    
+		                <div class="row">
+		                    <div class="col-md-12">
+		                        <div class="card">
+		                            <div class="header">
+		                                <h4 class="title">..: Sair Apartamento</h4>
+		                            </div>
+		                            <div class="content">
+		                            <form action="">
+		                            	<div class="row">
+	                            			<div class="col-md-12">
+	                                    		<div class="form-group">
+	                                        		<label>Escolha o Apartamento para desocupar</label>
+	                                        		<select name="aptdesocupar" required="required" class="form-control">
+	                                        			<option></option>
+	                                        		</select>
+		                                    	</div>        
+		                                	</div>
+                                		</div>
+		                                <div class="row">
+	                            			<div class="col-md-12">
+	                                    		<div class="form-group">
+	                                        		<label>Selecione os produtos que foram consumidos</label>
+	                                        		<select name="produtosConsumidos" required="required" class="form-control">
+	                                        			<option></option>
+	                                        		</select>
+		                                    	</div>        
+		                                	</div>
+		                                </div>
+		                                <div class="row">
+		                                	<div class="col-md-6">
+				                                 <div class="form-group">
+				                                  	<label>Quantidade</label>
+				                                    <input name="quantidade" type="number" class="form-control" required="required" placeholder="Quantidade">
+				                                 </div>        
+				                           </div>
+		                                	<div class="col-md-6">
+				                                 <div class="form-group">
+				                                  	 <button style="margin-top:5%; " class="btn" type="button">OK</button>
+				                                 </div>        
+				                           </div>
+		                                </div>
+                                		<div class="row">
+                                			<div class="content table-responsive table-full-width">
+				                                <table class="table table-hover table-striped">
+				                                    <thead>
+				                                        <th>ID</th>
+				                                    	<th>Produto</th>
+				                                    	<th>Quantidade</th>
+				                                    	<th>Valor</th>
+				                                    </thead>
+				                                    <tbody>
+				                                        <tr>
+				                                        	<td>1</td>
+				                                        	<td>Dakota Rice</td>
+				                                        	<td>2</td>
+				                                        	<td>50</td>
+				                                    	</tr>
+				                                    </tbody>
+				                                </table>
+				                            </div>
+                                		</div>
+                                		<div class="row">
+			                                <div class="col-md-6" >
+				                                     <div class="form-group">
+			                                          	<label>Data Saída</label>
+					                                    <input name="data_saida" type="date" class="form-control" required="required" placeholder="Data Saída">  
+			                                         </div>
+				                            </div> 
+				                        </div>
+				                        <div class="row"> 
+				                            <div class="col-md-4">
+				                                  <div class="form-group">
+				                                     <button class="btn" type="submit">Salvar</button>
+				                                  </div>        
+				                           </div>
+				                        </div>                                
+			                      </form>
+		                                
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>                     
+		            </div>    
+        	   </div>
         <footer class="footer">
                     <p class="copyright pull-right">
                     &copy; 2015 <a href="">Dev</a>

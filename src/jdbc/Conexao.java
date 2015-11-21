@@ -10,7 +10,7 @@ public class Conexao {
 		Connection conexao = null;
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
-			conexao = DriverManager.getConnection("jdbc:mysql://localhost/db_implantacoes","postgres","root");
+			conexao = DriverManager.getConnection("jdbc:mysql://localhost/BD_PousadaLuaEstrela","root","");
 			System.out.println("Conectado com sucesso!!");
 		}catch (SQLException e) {
 			System.out.println("Nao pode conectar:" + e.getMessage());	

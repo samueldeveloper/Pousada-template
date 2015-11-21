@@ -6,6 +6,8 @@ public class Apartamento {
 	private int    fkTipoApt;
 	private String tipoApt;
 	private String status;
+	private double valor_diaria;
+	
 	
 	public int getNumApt() {
 		return numApt;
@@ -31,7 +33,12 @@ public class Apartamento {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
+	public double getValor_diaria() {
+		return valor_diaria;
+	}
+	public void setValor_diaria(double valor_diaria) {
+		this.valor_diaria = valor_diaria;
+	}
 	
 	
 }
