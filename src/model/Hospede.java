@@ -1,22 +1,27 @@
 package model;
 
-public class Hospede {
-	
-	public class hospede {
+public class Hospede {	
 
-		int cod_cliente;
-		int cpf;
-		String nome_cliente;
-		String tel_celular;
-		String tel_fixo;
-		String rua;
-		int num_casa;
-		String complemento_casa;
-		String bairro;
-		String email;
-		int fk_estado;
-		int fk_cidade;		
+		private int cod_cliente;
+		private String cpf;
+		private int num_casa;
+		private int fk_estado;
+		private int fk_cidade;		
+		private String nome_cliente;
+		private String tel_celular;
+		private String tel_fixo;
+		private String rua;
+		private String cep;
+		private String complemento_casa;
+		private String bairro;
+		private String email;
 		
+		public String getCep() {
+			return cep;
+		}
+		public void setCep(String cep) {
+			this.cep = cep;
+		}
 		public int getFk_estado() {
 			return fk_estado;
 		}
@@ -36,10 +41,10 @@ public class Hospede {
 		public void setCod_cliente(int cod_cliente) {
 			this.cod_cliente = cod_cliente;
 		}
-		public int getCpf() {
+		public String getCpf() {
 			return cpf;
 		}
-		public void setCpf(int cpf) {
+		public void setCpf(String cpf) {
 			this.cpf = cpf;
 		}
 		public String getNome_cliente() {
@@ -91,10 +96,4 @@ public class Hospede {
 			this.email = email;
 		}
 		
-	}
-
-	
-	
-	
-	
 }

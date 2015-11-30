@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<%@page import="model.Reserva"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.DaoReserva"%>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -88,14 +91,20 @@
 				                                    	<th>Status</th>
 				                                    </thead>
 				                                    <tbody>
+				                                       <%
+				                                       		DaoReserva daoreserva = new DaoReserva();
+				                                       		List<Reserva> listareservas =  daoreserva.getListarReservas();
+				                                       		for(Reserva reserva : listareservas){
+				                                       %>
 				                                        <tr>
-				                                        	<td>1</td>
-				                                        	<td>Dakota Rice</td>
-				                                        	<td>2</td>
-				                                        	<td>50</td>
-				                                        	<td>2</td>
-				                                        	<td>50</td>
+				                                        	<td><%=reserva.getNum_reserva()%></td>
+				                                        	<td><%=reserva.getNum_apt()%></td>
+				                                        	<td><%=reserva.getCliente()%></td>
+				                                        	<td><%=reserva.getData_entrada()%></td>
+				                                        	<td><%=reserva.getData_saida()%></td>
+				                                        	<td><%=reserva.getStatus_reserva()%></td>
 				                                    	</tr>
+				                                     	<%} %>
 				                                    </tbody>
 				                                </table>
 				                            </div>

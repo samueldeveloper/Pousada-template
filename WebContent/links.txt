@@ -1,2 +1,14 @@
 icones
 http://themes-pixeden.com/font-demos/7-stroke/
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	ainda faltaa no sistema
+	
+	tela - ocupar apartamentos
+		validar cpf
+		verificar se cpf ja esta na base no nome de outro hospede
+		validar email
+		validar se data de entrada não é maior que data de saida
+		colocar foco ao perceber que campo é obrigatorio
+		pelar campos dando enter

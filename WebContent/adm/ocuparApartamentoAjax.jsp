@@ -91,15 +91,7 @@
 	                                        		<label>Escolha o Apartamento</label>
 	                                        		<select name="apt" required="required" class="form-control">
 	                                        			<option value="0">Selecione o Apartamento</option>
-	                                        			  <%DaoApartamento daoapt = new DaoApartamento(); 
-					                                        List<Apartamento> listaApt = daoapt.getListarApartamentosPorStatus("D");
-					                                        for(Apartamento ap : listaApt){%>
-					                                        <option value="<%=ap.getNumApt()%>">
-					                                        	<%=ap.getNumApt()%> - 
-					                                            <%=ap.getTipoApt() %> -
-					                                            R$ :<%=ap.getValor_diaria()%>
-					                                        </option>
-					                                        <%}%>
+	                                        			 
 	                                        		</select>
 		                                    	</div>        
 		                                	</div>
@@ -236,6 +228,19 @@
 		$("input[name=fixo]").mask("(99)99999-9999");
 		$("input[name=celular]").mask("(99)99999-9999");
 		
+		$("select[name=apt]").focus(function(){
+			  $.ajax({
+					type:"post",
+					url :"../ListarApartamentos",
+					data:{
+						status:"D"
+					},
+					success: function(result){
+						$("select[name=apt]").html(result);
+					}
+				});
+		});
+		
 		$("select[name=estado]").change(function(){
             $("select[name=cidade]").html('<option value="0">Carregando...</option>');
             //alert($(this).val());
@@ -317,11 +322,10 @@
 	 					},
 	 					success: function(result){
 	 						$(".card").append(result);
-	 						setTimeout(function(){$(".resultado").hide("slow"); location.reload(); }, 3000)
+	 						setTimeout(function(){$(".resultado").hide("slow")}, 2000)
 	 					}
 	 				});
 	 				$("#form").get(0).reset();
-	 				
 	 				
 	 			}
  		});

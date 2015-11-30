@@ -92,7 +92,7 @@
 		                                    <div class="form-group">
 		                                        <label>Tipo Apartamento</label>
 		                                        <select id="tipoApt" name="tipoApt" required="required" class="form-control">
-		                                        	<option selected="selected">Selecione uma opção</option>
+		                                        	<option value="0" selected="selected">Selecione uma opção</option>
 		                                        	<c:forEach var="tipoapt" items="${daoTipoApartamento.tipoApartamento}">
 										             		 <option value="${tipoapt.pkTipoApt}">${tipoapt.tipoApt}</option>        
 										            </c:forEach>
@@ -130,7 +130,13 @@
 		$(".btn").click(function(){
 			var numeroapt = $("input[name=numApt]").val();
 			var tipoapt   = $("#tipoApt").val();
-			if(numeroapt != "" && tipoapt != ""){
+			if(numeroapt == ""){
+				alert("Preencher numero do apartamento");
+				$("input[name=numApt]").focus();
+			}else if(tipoapt == 0){
+				alert("Selecionar Tipo do apartamento");
+				$("#tipoApt").focus();
+			}else{
 				$.ajax({
 					type:"post",
 					url :"../CadastrarApartamento",

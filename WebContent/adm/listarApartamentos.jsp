@@ -104,7 +104,7 @@
 					                                        	<td><%=ap.getTipoApt() %></td>
 					                                        	<td>R$ : <%=ap.getValor_diaria()%></td>
 					                                        	<td><%=ap.getStatus()%></td>
-					                                        	<td><a href="#"><i class="pe-7s-close"></i></a> </td>
+					                                        	<td><a href="DeletarApartamento?id=<%=ap.getNumApt()%>"><i class="pe-7s-close"></i></a> </td>
 				                                        					         
 				                                        					                                        	
 				                                    	</tr>

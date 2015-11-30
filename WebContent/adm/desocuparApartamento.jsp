@@ -1,4 +1,8 @@
+<%@page import="dao.DaoApartamento"%>
+<%@page import="model.Apartamento"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
+<%@page import="dao.DaoApartamento"%>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -82,7 +86,12 @@
 	                                    		<div class="form-group">
 	                                        		<label>Escolha o Apartamento para desocupar</label>
 	                                        		<select name="aptdesocupar" required="required" class="form-control">
-	                                        			<option></option>
+	                                        		<option>Seleciona</option>
+	                                        			  <%DaoApartamento daoapt = new DaoApartamento(); 
+					                                        List<Apartamento> listaApt = daoapt.getListarApartamentosPorStatus("O");
+					                                        for(Apartamento ap : listaApt){%>
+					                                        <option value="<%=ap.getNumApt()%>"><%=ap.getNumApt()%> - <%=ap.getTipoApt() %> - R$ : <%=ap.getValor_diaria()%></option>
+					                                        <%}%>	                                        		
 	                                        		</select>
 		                                    	</div>        
 		                                	</div>

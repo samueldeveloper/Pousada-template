@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,10 +27,16 @@ public class ListarApartamentos extends HttpServlet {
 		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		PrintWriter out = response.getWriter();
-		 
-		
-		
+		String status = request.getParameter("status"); 
+		DaoApartamento daoapt = new DaoApartamento(); 
+        List<Apartamento> listaApt = daoapt.getListarApartamentosPorStatus(status);
+        for(Apartamento ap : listaApt){
+        	out.println("<option value = '" + ap.getNumApt() + "'>" + ap.getNumApt() + " - " + ap.getTipoApt() + " - R$ :" + ap.getValor_diaria() + "</option>");
+		}
 	}
 
+        
 }
