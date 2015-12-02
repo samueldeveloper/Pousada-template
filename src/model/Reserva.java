@@ -1,5 +1,9 @@
 package model;
 
+import java.util.Calendar;
+
+
+
 public class Reserva {
 
 	private int num_reserva;
@@ -9,8 +13,14 @@ public class Reserva {
 	private String data_saida;
 	private String cliente;
 	private String status_reserva;
+	private double valorDiaria;
 	
-	
+	public double getValorDiaria() {
+		return valorDiaria;
+	}
+	public void setValorDiaria(double valorDiaria) {
+		this.valorDiaria = valorDiaria;
+	}
 	public String getCliente() {
 		return cliente;
 	}

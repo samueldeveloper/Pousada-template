@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page import="utils.FormataStringToData"%>
+<%@page import="utils.FormataData"%>
 <%@page import="model.Reserva"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.DaoReserva"%>
@@ -100,8 +102,8 @@
 				                                        	<td><%=reserva.getNum_reserva()%></td>
 				                                        	<td><%=reserva.getNum_apt()%></td>
 				                                        	<td><%=reserva.getCliente()%></td>
-				                                        	<td><%=reserva.getData_entrada()%></td>
-				                                        	<td><%=reserva.getData_saida()%></td>
+				                                        	<td><%=FormataStringToData.stringToData(reserva.getData_entrada())%></td>
+				                                        	<td><%=FormataStringToData.stringToData(reserva.getData_saida())%></td>
 				                                        	<td><%=reserva.getStatus_reserva()%></td>
 				                                    	</tr>
 				                                     	<%} %>

@@ -70,4 +70,51 @@ public class DaoReserva {
 		return listaReservas;		
 	}
 	
+	
+	public Reserva getReserva(String status, int num_apt){
+		String sql =  "select tb_reserva.*, tb_tipoapartamento.valor_apt from tb_reserva "
+				+ "inner join tb_apartamento on tb_apartamento.num_apt = tb_reserva.num_apt "
+				+ "inner join tb_tipoapartamento on tb_tipoapartamento.pk_tipo_apt = tb_apartamento.tipo_apt"
+				+ " WHERE tb_reserva.status_reserva = ? and tb_reserva.num_apt = ?";
+		
+		Reserva reserva = null;
+		try {
+			
+			PreparedStatement prep = conexao.prepareStatement(sql);
+			prep.setString(1, status);
+			prep.setInt(2, num_apt);
+			ResultSet resultado = prep.executeQuery();
+			if(resultado.next()) {
+				
+				reserva = new Reserva();
+				reserva.setNum_reserva(resultado.getInt("num_reserva"));
+				reserva.setNum_apt(resultado.getInt("num_apt"));
+				
+				reserva.setData_entrada(resultado.getString("data_entrada"));
+				reserva.setData_saida(resultado.getString("data_saida"));
+				reserva.setStatus_reserva(resultado.getString("status_reserva"));
+				reserva.setValorDiaria(resultado.getDouble("valor_apt"));
+			}
+			prep.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return reserva;		
+	}
+	
+	public void alterarReserva(Reserva reserva){
+		String sql = "update tb_reserva SET status_reserva = ?, data_saida = ? WHERE num_apt = ?";
+		try {
+			PreparedStatement prep = conexao.prepareStatement(sql);
+			prep.setString(1, reserva.getStatus_reserva());
+			prep.setString(2, reserva.getData_saida());
+			prep.setInt(3, reserva.getNum_apt());
+			prep.execute();
+			prep.close();			
+			System.out.println("Reserva Alterado com sucesso!");
+		}  catch (SQLException e) {			
+			e.printStackTrace();
+		}
+	}
+	
 }

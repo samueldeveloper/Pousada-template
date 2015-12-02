@@ -121,6 +121,8 @@ public class DaoApartamento {
 		}
 	}
 	
+	
+	
 	public void deletarApartamento(int id){
 		
 		String sql = "delete from tb_apartamento where num_apt = ?";
