@@ -1,5 +1,5 @@
 package model;
-
+// tb_apartamento
 public class Apartamento {
 
 	private int    numApt;
@@ -7,7 +7,6 @@ public class Apartamento {
 	private String tipoApt;
 	private String status;
 	private double valor_diaria;
-	
 	
 	public int getNumApt() {
 		return numApt;

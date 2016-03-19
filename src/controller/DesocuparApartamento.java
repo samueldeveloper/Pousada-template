@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import utils.DiferencaEntreDatas;
 import utils.FormataStringToData;
 import model.Apartamento;
 import model.Reserva;
@@ -37,6 +38,7 @@ public class DesocuparApartamento extends HttpServlet {
 		System.out.println(acao);
 		String num_apt = request.getParameter("num_apt");
 		String data_saida = request.getParameter("data_saida");
+		
 		if(acao == null){
 			acao = "desocuparApartamento";
 		}
@@ -46,6 +48,20 @@ public class DesocuparApartamento extends HttpServlet {
 			String data_entrada = reserva.getData_entrada();
 			String data_saida1 = reserva.getData_saida();
 			out.println(FormataStringToData.stringToData(data_entrada) + "|" + FormataStringToData.stringToData(data_saida1));
+		}else if(acao.equals("gastodiarias")){
+			
+			String data_entrada = request.getParameter("data_entrada");
+			String data_saida2   = request.getParameter("data_saida");
+			
+			Apartamento apt1 = new Apartamento();
+			DaoApartamento dao = new DaoApartamento();
+			dao.listarPorId(Integer.parseInt(num_apt));
+			Double valorDiaria = apt1.getValor_diaria();
+			
+			long diashospedados = DiferencaEntreDatas.DiferencaDatas(data_entrada, data_saida2);
+			Double consumo = valorDiaria * diashospedados;
+			out.println("<div class='resultado' style='background:#1F77D0;color:#fff'><center>"+ consumo +"</center></div>'");
+			
 		}else{	
 			Apartamento apt = new Apartamento();
 			apt.setNumApt(Integer.parseInt(num_apt));

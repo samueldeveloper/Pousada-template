@@ -8,7 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width" />
 	<title>Cadastrar Apartamento</title>
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
 	<link href="../css/light-bootstrap-dashboard.css" rel="stylesheet"/>
 	
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">

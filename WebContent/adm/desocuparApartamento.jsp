@@ -102,7 +102,7 @@
 	                            			<div class="col-md-12">
 	                                    		<div class="form-group">
 	                                        		<label>Selecione os produtos que foram consumidos</label>
-	                                        		<select name="produtosConsumidos" required="required" class="form-control">
+	                                        		<select name="produtosConsumidos" required="required" class="form-control" disabled="disabled">
 	                                        			<option value="0">Seleciona o Produto consumido</option>
 	                                        			<%DaoProduto daoprod = new DaoProduto(); 
 					                                        List<Produto> listaproduto = daoprod.getListarProdutos();
@@ -118,12 +118,12 @@
 		                                	<div class="col-md-6">
 				                                 <div class="form-group">
 				                                  	<label>Quantidade</label>
-				                                    <input name="quantidade" type="number" class="form-control" required="required" placeholder="Quantidade">
+				                                    <input name="quantidade" type="number" class="form-control" required="required" placeholder="Quantidade" disabled="disabled">
 				                                 </div>        
 				                           </div>
 		                                	<div class="col-md-4">
 				                                 <div class="form-group">
-				                                  	 <button style="margin-top:7%" class="btn" id="btn_adc_prod" type="button">OK</button>
+				                                  	 <button style="margin-top:7%" class="btn" id="btn_adc_prod" type="button" disabled="disabled">OK</button>
 				                                 </div>        
 				                           </div>
 				                           <div class="col-md-2">
@@ -152,13 +152,13 @@
 			                                <div class="col-md-6" >
 				                                     <div class="form-group">
 			                                          	<label>Data entrada</label>
-					                                    <input name="data_entrada" type="text" class="form-control" required="required" placeholder="Data Entrada">  
+					                                    <input name="data_entrada" type="text" class="form-control" required="required" placeholder="Data Entrada" readonly="readonly">  
 			                                         </div>
 				                            </div>
 				                            <div class="col-md-6" >
 				                                     <div class="form-group">
 			                                          	<label>Data Saída</label>
-					                                    <input name="data_saida1" type="text" class="form-control" required="required" placeholder="Data Saída">  
+					                                    <input name="data_saida1" type="text" class="form-control" required="required" placeholder="Data Saída" readonly="readonly">  
 			                                         </div>
 				                            </div> 
 				                        </div>
@@ -166,14 +166,17 @@
 			                                <div class="col-md-6" >
 				                                     <div class="form-group">
 			                                          	<label>Data Saída</label>
-					                                    <input name="data_saida" type="date" class="form-control" required="required" placeholder="Data Saída">  
+					                                    <input value="0" name="data_saida" type="date" class="form-control" required="required" placeholder="Data Saída" disabled="disabled">  
 			                                         </div>
 				                            </div> 
 				                        </div>
 				                        <div class="row"> 
 				                            <div class="col-md-4">
 				                                  <div class="form-group">
-				                                     <button class="btn" id="btn" type="button">Salvar</button>
+				                                     <button class="btn" id="btn" type="button" disabled="disabled">Salvar</button>
+				                                  </div>
+				                                  <div class="form-group">
+				                                     <button class="btn" id="btn_mostrar_consumo" type="button" disabled="disabled">Monstrar consumo</button>
 				                                  </div>        
 				                           </div>
 				                        </div>                                
@@ -203,11 +206,11 @@
 	
 	<script type="text/javascript">
 		$(document).ready(function(){
-			
 		/*
 		* Definir quantidade total do consumo dos itens
 		*/
 		$('input[name=quantidade]').blur(function(){
+			
 			var quantidade = $('input[name=quantidade]').val();
 			var valorProduto = $('input[name=valor_produto]').val();
 			var valor_final = quantidade  * valorProduto;
@@ -222,7 +225,7 @@
 			var textProdutoConsumido = $('select[name=produtosConsumidos] option:selected').text();		
 			var quantidade = $('input[name=quantidade]').val();
 			var valorProduto = $('input[name=valor_produto]').val();
-			
+				
 			if(idProdutoConsumido == 0){
 				alert("Selecione o item que o hospede consumiu");
 				$('select[name=produtosConsumidos]').focus();
@@ -239,14 +242,66 @@
 		});
 		
 		/*
+		* 
+		*/
+		$("#btn_mostrar_consumo").click(function(){
+			var aptdesocupar = $('select[name=aptdesocupar]').val();
+			
+			var data_entrada   =  $('input[name=data_entrada]').val();
+			var data_saida1   =  $('input[name=data_saida1]').val();			
+			var data_saidatela   =  $('input[name=data_saida]').val();
+			
+			var mandardata = null;
+			
+			var monta_datatela = data_saidatela.split('-');
+			var monta_data1    = data_saida1.split('/');
+			var monta_data_entrada   = data_entrada.split('/');
+			
+			var datafinaltela    = monta_datatela[0] +  monta_datatela[1] + monta_datatela[2];
+			var datafinal1       = monta_data1[2] +  monta_data1[1] + monta_data1[0];
+			var datafinalentrada = monta_data_entrada[2] +  monta_data_entrada[1] + monta_data_entrada[0];
+			
+			//console.log(datafinal);
+			if(data_saidatela == 0){
+				mandardata = datafinal1;
+			}else if(datafinaltela == datafinal1){
+				mandardata = datafinal1;
+			}else{
+				mandardata = datafinaltela
+			}	
+			
+			alert(mandardata)
+			
+				$.ajax({
+					type:"post",
+					url :"../DesocuparApartamento",
+					data: {	
+						acao:"gastodiarias",
+						num_apt:aptdesocupar,
+						data_saida:mandardata,
+						data_entrada:datafinalentrada
+					},
+					success: function(result){
+						$(".card").append(result);
+						setTimeout(function(){$(".resultado").hide("slow")}, 6000)					
+					}
+				});
+			
+			
+		});
+		
+		/*
 		* Mandar para o servlet via ajax
 		*/
 		$("#btn").click(function(){
 			var aptdesocupar = $('select[name=aptdesocupar]').val();
-			var data_saida   =  $('input[name=data_saida]').val();
+			
+			var data_entrada   =  $('input[name=data_entrada]').val();
+			var data_saida   =  $('input[name=data_saida1]').val();			
+			
 			if(aptdesocupar == 0){
-				alert("Selecione um apartamento para desocupar");
-				$('select[name=aptdesocupar]').focus();
+					alert("Selecione um apartamento para desocupar");
+					$('select[name=aptdesocupar]').focus();
 			}else{
 				$.ajax({
 					type:"post",
@@ -261,6 +316,7 @@
 					}
 				});
 			}
+			
 		});
 		
 		/*
@@ -283,6 +339,7 @@
 		* Pegar data entrada/data saida/valor
 		*/
 		$('select[name=aptdesocupar]').change(function(){
+			$('.content').find('input, textarea, select, button').prop('disabled','');
 			var acao = "pegardados";
 			$.ajax({
 				type:"post",
@@ -292,7 +349,7 @@
 					acao:acao
 				},
 				success: function(result){
-					alert(result);
+					//alert(result);
 					var quebradata = result.split('|');
 					$('input[name=data_entrada]').val(quebradata[0]);
 					$('input[name=data_saida1]').val(quebradata[1]);
