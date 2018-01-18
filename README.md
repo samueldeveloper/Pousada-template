@@ -1,9 +1,11 @@
 # SysPousada
 Sistema para geranciar pousadas
 
-#Instalação
+# Instalação
 
-##Banco 
+... em desenvolvimento
 
--> bd_pousadaluaestrela.sql
+## Script do banco 
+
+[bd_pousadaluaestrela.sql](https://github.com/samuelsilvadev/SysPousada/blob/master/bd_pousadaluaestrela.sql)
 
